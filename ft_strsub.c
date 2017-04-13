@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/13 18:20:49 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 20:19:31 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 20:01:38 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 20:06:32 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-char	*ft_strstr(const char *big, const char *little, size_t len)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	size_t i;
-	size_t j;
+	char	*sub;
+	size_t	i;
 
+	if ((sub = malloc(sizeof(char) * len + 1)) == NULL)
+		return (NULL);
 	i = 0;
-	j = 0;
-	while (big[i] && i < len)
+	while (i < len)
 	{
-		j = 0;
-		while (big[i + j] == little[j] && i + j < len)
-		{
-			if (little[j + 1] == 0)
-				return ((char *)big + i);
-			j++;
-		}
+		sub[i] = s[start];
 		i++;
+		start++;
 	}
-	return (NULL);
+	sub[i] = 0;
+	return (sub);
 }

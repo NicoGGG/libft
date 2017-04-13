@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/13 18:20:49 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 20:19:31 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 18:44:02 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 20:00:49 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strstr(const char *big, const char *little, size_t len)
+int		ft_atoi(const char *str)
 {
-	size_t i;
-	size_t j;
+	int	result;
+	int	i;
+	int sign;
 
+	result = 0;
 	i = 0;
-	j = 0;
-	while (big[i] && i < len)
+	sign = 1;
+	while ((str[i] > 8 && str[i] < 12) || str[i] == 32)
+		i++;
+	if (str[i] == '-')
 	{
-		j = 0;
-		while (big[i + j] == little[j] && i + j < len)
-		{
-			if (little[j + 1] == 0)
-				return ((char *)big + i);
-			j++;
-		}
+		sign = -1;
 		i++;
 	}
-	return (NULL);
+	else if (str[i] == '+')
+		i++;
+	while ((str[i] > 8 && str[i] < 12) || str[i] == 32)
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + str[i] - '0';
+		i++;
+	}
+	return (result * sign);
 }

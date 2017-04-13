@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/13 18:20:49 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 20:19:31 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 19:39:53 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 20:19:08 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-char	*ft_strstr(const char *big, const char *little, size_t len)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	size_t i;
-	size_t j;
+	int		i;
+	char	*map;
 
 	i = 0;
-	j = 0;
-	while (big[i] && i < len)
-	{
-		j = 0;
-		while (big[i + j] == little[j] && i + j < len)
-		{
-			if (little[j + 1] == 0)
-				return ((char *)big + i);
-			j++;
-		}
+	while (s[i])
 		i++;
-	}
-	return (NULL);
+	if ((map = (char *)malloc(sizeof(char) * i)) == NULL)
+		return (NULL);
+	map[i] = 0;
+	while (--i >= 0)
+		map[i] = f(s[i]);
+	return (map);
 }

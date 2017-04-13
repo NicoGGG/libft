@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/13 18:20:49 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 20:19:31 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 20:07:05 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 20:20:10 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-char	*ft_strstr(const char *big, const char *little, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
-	size_t j;
+	int		i;
+	int		j;
+	char	*join;
 
 	i = 0;
 	j = 0;
-	while (big[i] && i < len)
-	{
-		j = 0;
-		while (big[i + j] == little[j] && i + j < len)
-		{
-			if (little[j + 1] == 0)
-				return ((char *)big + i);
-			j++;
-		}
+	while (s1[i])
 		i++;
+	while (s2[j])
+		j++;
+	if ((join = malloc(sizeof(char) * (i + j) + 1)) == NULL)
+		return (NULL);
+	while (--i >= 0)
+	{
+		while (j >= 0)
+		{
+			join[i + j] = s2[j];
+			j--;
+		}
+		join[i] = s1[i];
 	}
-	return (NULL);
+	return (join);
 }

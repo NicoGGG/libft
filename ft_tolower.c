@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/13 18:20:49 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 20:19:31 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 19:09:27 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 19:58:05 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strstr(const char *big, const char *little, size_t len)
+int		ft_toupper(int c)
 {
-	size_t i;
-	size_t j;
-
-	i = 0;
-	j = 0;
-	while (big[i] && i < len)
-	{
-		j = 0;
-		while (big[i + j] == little[j] && i + j < len)
-		{
-			if (little[j + 1] == 0)
-				return ((char *)big + i);
-			j++;
-		}
-		i++;
-	}
-	return (NULL);
+	if (c >= 65 && c <= 97)
+		return (c - 32);
+	else
+		return (c);
 }
