@@ -1,42 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/13 20:20:19 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 20:37:53 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 20:39:00 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 21:27:57 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_strtrim(char const *s)
+int		dec(int n)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	*trim;
+	if (n > -10 && n < 10)
+		return (1);
+	else
+		return (dec(n / 10) + 1);
+}
 
-	i = 0;
-	while (s[i] == ' ' || s[i] == ',' || s[i] == '\n' || s[i] == '\t')
-		i++;
-	j = 0;
-	while (s[j])
-		j++;
-	while (s[j] == ' ' || s[j] == ',' ||
-			s[j] == '\n' || s[j] == '\t' || s[j] == 0)
-		j--;
-	k = j - i + 1;
-	if ((trim = (char *)malloc(sizeof(char) * j)) == NULL)
+char	*itoa(int n)
+{
+	int		nbd;
+	char	*result;
+
+	nbd = dec(n);
+	if (n >= 0)
+		n = -n;
+	else
+		nbd++;
+	if ((result = malloc(sizeof(char) * nbd + 1)) == NULL)
 		return (NULL);
-	trim[k] = 0;
-	while (j >= i)
+	result[nbd] = 0;
+	nbd--;
+	if (n == 0)
+		result[0] = '0';
+	if (n < 0)
+		result[0] = '-';
+	while (n)
 	{
-		trim[k] = s[j];
-		k--;
-		j--;
+		result[nbd] = (n % -10);
+		n /= 10;
+		nbd--;
 	}
-	return (trim);
+	return (result);
 }
