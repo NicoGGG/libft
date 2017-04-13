@@ -6,7 +6,7 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 15:45:48 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/11 15:58:34 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/13 17:49:16 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	char	*source;
 	char	*destination;
-	int		i;
+	size_t	i;
 
 	source = (char *)src;
 	destination = (char *)dst;

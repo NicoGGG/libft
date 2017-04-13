@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 15:34:44 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 17:50:35 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 17:22:09 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 17:53:32 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	char	*source;
-	char	*destination;
-	char	tmp[n];
-	size_t	i;
+	size_t i;
+	int len;
 
-	source = (char *)src;
-	destination = (char *)dst;
 	i = 0;
-	while (i < n)
+	len = 0;
+	while (s1[len])
+		len++;
+	while (i < n && s2[i])
 	{
-		tmp[i] = source[i];
+		s1[len] = s2[i];
 		i++;
+		len++;
 	}
-	i = 0;
-	while (i < n)
-	{
-		destination[i] = tmp[i];
-		i++;
-	}
-	return (dst);
+	s1[len] = 0;
+	return (s1);
 }

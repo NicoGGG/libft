@@ -1,37 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 15:34:44 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 17:50:35 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 17:29:22 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 17:53:58 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+static size_t	ft_catlen(const char *s)
 {
-	char	*source;
-	char	*destination;
-	char	tmp[n];
-	size_t	i;
+	int i;
 
-	source = (char *)src;
-	destination = (char *)dst;
 	i = 0;
-	while (i < n)
-	{
-		tmp[i] = source[i];
+	while (s[i])
 		i++;
-	}
+	return (i);
+}
+
+size_t			ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	size_t	ret;
+
+	j = ft_catlen(dst);
 	i = 0;
-	while (i < n)
+	if (size > ft_catlen(src))
+		ret = j + ft_catlen(src);
+	else
+		ret = size;
+	while (src[i] && j < size)
 	{
-		destination[i] = tmp[i];
+		dst[j] = src[i];
 		i++;
+		j++;
 	}
-	return (dst);
+	return (ret);
 }

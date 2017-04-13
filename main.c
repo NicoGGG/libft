@@ -19,8 +19,8 @@ int		main(int ac, char **av)
 	printf("\nmemset affiche : %s pour b = bonjour, c = 50 et len = 6\n", (char *)memset(test1, 50, 6));
 	printf("\nft_memset affiche : %s pour les memes arguments\n", (char *)ft_memset(mytest1, 50, 6));
 	printf("\n-----TEST 2-----\n");
-	printf("\nmemset affiche : '%s' pour b = salut ca va, c = 51 et len = 20\n", (char *)memset(test2, 51, 20));
-	printf("\nft_memset affiche : %s pour les memes arguments\n", (char *)ft_memset(mytest2, 51, 20));
+	printf("\nmemset affiche : '%s' pour b = salut ca va, c = 51 et len = 12\n", (char *)memset(test2, 51, 12));
+	printf("\nft_memset affiche : %s pour les memes arguments\n", (char *)ft_memset(mytest2, 51, 12));
 	printf("\n-----TEST 3-----\n");
 	printf("\nmemset affiche : %s pour b = NULL, c = 52 et len = 0\n", (char *)memset(test3, 52, 0));
 	printf("\nft_memset affiche : %s pour les memes arguments\n", (char *)ft_memset(mytest3, 52, 0));

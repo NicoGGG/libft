@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 15:34:44 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 17:50:35 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 18:03:05 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 18:11:25 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+char    *ft_strrchr(const char *s, int c)
 {
-	char	*source;
-	char	*destination;
-	char	tmp[n];
-	size_t	i;
+	char    *tmp;
+	char    t;
+	int		i;
 
-	source = (char *)src;
-	destination = (char *)dst;
 	i = 0;
-	while (i < n)
-	{
-		tmp[i] = source[i];
+	tmp = (char *)s;
+	t = (char )c;
+	while (tmp[i])
 		i++;
-	}
-	i = 0;
-	while (i < n)
+	while (i >= 0)
 	{
-		destination[i] = tmp[i];
-		i++;
+		if (tmp[i] == t)
+			return (&tmp[i]);
+		else
+			i--;
 	}
-	return (dst);
+	return (NULL);
 }
