@@ -5,25 +5,40 @@
 
 int		main(int ac, char **av)
 {
-	char mytest1[] = "bonjour";
-	char mytest2[] = "salut ca va ?";
-	char mytest3[] = "";
-	char test1[] = "bonjour";
-	char test2[] = "salut ca va ?";
+	char *mytest1;
+	char *mytest2;
+	char *mytest3;
+	char test1[] = "   bonjour    ";
+	char test2[] = "S4LuT C4 v4 ?";
 	char test3[] = "";
+	char c = 50;
+	int len = 7;
 
 	printf("\n -----------------MEMSET------------------- \n");
 
 // EXERCICE MEMSET
 	printf("\n-----TEST 1-----\n");
-	printf("\nmemset affiche : %s pour b = bonjour, c = 50 et len = 6\n", (char *)memset(test1, 50, 6));
-	printf("\nft_memset affiche : %s pour les memes arguments\n", (char *)ft_memset(mytest1, 50, 6));
+	mytest1 = strdup(test1);
+	printf("\n   memset pointe sur : '%s' pour s = '%s', c = '%d' et len = '%d'. s devient '%s'\n-", (char *)memset(mytest1, c, len), test1, c, len, mytest1);
+	mytest1 = strdup(test1);
+	printf("\nft_memset pointe sur : '%s' pour s = '%s', c = '%d' et len = '%d'. s devient '%s'\n-", (char *)memset(mytest1, c, len), test1, c, len, mytest1);
+
 	printf("\n-----TEST 2-----\n");
-	printf("\nmemset affiche : '%s' pour b = salut ca va, c = 51 et len = 12\n", (char *)memset(test2, 51, 12));
-	printf("\nft_memset affiche : %s pour les memes arguments\n", (char *)ft_memset(mytest2, 51, 12));
+	c = 51;
+	len = 12
+	mytest2 = strdup(test2);
+	printf("\n   memset pointe sur : '%s' pour s = '%s', c = '%d' et len = '%d'. s devient '%s'\n-", (char *)memset(mytest2, c, len), test2, c, len, mytest2);
+	mytest2 = strdup(test2);
+	printf("\nft_memset pointe sur : '%s' pour s = '%s', c = '%d' et len = '%d'. s devient '%s'\n-", (char *)memset(mytest2, c, len), test2, c, len, mytest2);
+
 	printf("\n-----TEST 3-----\n");
-	printf("\nmemset affiche : %s pour b = NULL, c = 52 et len = 0\n", (char *)memset(test3, 52, 0));
-	printf("\nft_memset affiche : %s pour les memes arguments\n", (char *)ft_memset(mytest3, 52, 0));
+	c = 52;
+	len = 0
+	mytest3 = strdup(test3);
+	printf("\n   memset pointe sur : '%s' pour s = '%s', c = '%d' et len = '%d'. s devient '%s'\n-", (char *)memset(mytest3, c, len), test3, c, len, mytest3);
+	mytest3 = strdup(test3);
+	printf("\nft_memset pointe sur : '%s' pour s = '%s', c = '%d' et len = '%d'. s devient '%s'\n-", (char *)memset(mytest3, c, len), test3, c, len, mytest3);
+
 	printf("\n -----------------BZERO------------------- \n");
 
 // EXERCICE BZERO
