@@ -1,15 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/14 15:30:47 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/14 15:30:51 by nguelfi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
-static int		tab_lines(char const *s, char c)
+int				tab_lines(char const *s, char c)
 {
 	int			i;
 	int			lines;
+	char		tmp;
 
+	tmp = c;
 	i = 0;
 	lines = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] != 'c'
+		if (s[i] != 'c')
 		{
 			lines += 1;
 			while (s[i] != 'c')
@@ -21,11 +35,13 @@ static int		tab_lines(char const *s, char c)
 	return (lines);
 }
 
-static char		*fill_tab(char const *s, char c)
+char			*fill_tab(char const *s, char c)
 {
 	int			i;
 	char		*copy;
+	char		tmp;
 
+	tmp = c;
 	i = 0;
 	copy = NULL;
 	if (s == NULL)
@@ -50,7 +66,7 @@ char			**ft_split_whitespaces(char const *s, char c)
 	j = 0;
 	if (s == NULL)
 		return (NULL);
-	if ((tab = (char**)malloc(sizeof(*tab) * (tab_lines(s) + 1))) == NULL)
+	if ((tab = (char**)malloc(sizeof(*tab) * (tab_lines(s, c) + 1))) == NULL)
 		return (NULL);
 	while (s[i] != '\0')
 	{

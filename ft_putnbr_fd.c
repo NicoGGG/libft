@@ -6,13 +6,13 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 21:24:16 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 21:27:41 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/14 14:32:48 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	char c;
 
@@ -28,8 +28,8 @@ void	ft_putnbr(int n, int fd)
 	}
 	if (n > 9)
 	{
-		ft_putnbr(n / 10, fd);
-		ft_putnbr(n % 10, fd);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 	else
 	{
