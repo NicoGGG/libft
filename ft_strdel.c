@@ -14,6 +14,13 @@
 
 void	ft_strdel(char **as)
 {
-	free(*as);
-	as = NULL;
+	if (as == NULL)
+		return ;
+	while (*as)
+	{
+		free(*as);
+		*as = NULL;
+		as++;
+	}
+	as = NULL;;
 }
