@@ -2,13 +2,13 @@ mem functions, strlcat, strchr, strnstr
 
 sur le main principal :
 
-- strchr, strstr,
+DONE
 
 sur un 2e main :
 
 - les fonctions suppl :
-	striter, strmap, strequ, strsub, strjoin, strtrim, strsplit, put_fd
+	striter, strmap, strequ, strsub, put_fd
 
 sur un 3e main :
 
-- les fonctions list
+DONE

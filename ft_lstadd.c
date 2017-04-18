@@ -6,7 +6,7 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 22:00:50 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 22:04:05 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/18 15:16:12 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,5 @@ void	ft_lstadd(t_list **alst, t_list *new)
 		*alst = new;
 	else
 		new->next = *alst;
+	*alst = new;
 }
