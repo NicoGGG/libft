@@ -8,7 +8,7 @@ void	print_list(t_list *lst)
 {
 	while (lst)
 	{
-		printf("%s\n", lst->content);
+		printf("%s\n", (char *)lst->content);
 		lst = lst->next;
 	}
 }
@@ -38,7 +38,7 @@ t_list	*make_c(t_list *elem)
 {
 	char	*tmp;
 	tmp = elem->content;
-	tmp[0] = 'B';
+	tmp[0] = 'C';
 	return (elem);
 }
 
@@ -59,15 +59,15 @@ t_list	*buildlist(char *av1, char *av2, char *av3, char *av4, char *av5)
 
 	list = NULL;
 
-	ft_lstadd(&list, ft_lstnew(data1, sizeof(char) * strlen(data1) +1));
-	ft_lstadd(&list, ft_lstnew(data2, sizeof(char) * strlen(data2) +1));
-	ft_lstadd(&list, ft_lstnew(data3, sizeof(char) * strlen(data3) +1));
-	ft_lstadd(&list, ft_lstnew(data4, sizeof(char) * strlen(data4) +1));
-	ft_lstadd(&list, ft_lstnew(data5, sizeof(char) * strlen(data5) +1));
+	ft_lstadd(&list, ft_lstnew(data1, sizeof(char) * size1));
+	ft_lstadd(&list, ft_lstnew(data2, sizeof(char) * size2));
+	ft_lstadd(&list, ft_lstnew(data3, sizeof(char) * size3));
+	ft_lstadd(&list, ft_lstnew(data4, sizeof(char) * size4));
+	ft_lstadd(&list, ft_lstnew(data5, sizeof(char) * size5));
 
 	return (list);
-
 }
+
 int		main(int ac, char **av)
 {
 	if (ac != 6)
@@ -92,11 +92,11 @@ int		main(int ac, char **av)
 	del = &delete_link;
 	list = NULL;
 
-	ft_lstadd(&list, ft_lstnew(data1, sizeof(char) * strlen(data1) +1));
-	ft_lstadd(&list, ft_lstnew(data2, sizeof(char) * strlen(data2) +1));
-	ft_lstadd(&list, ft_lstnew(data3, sizeof(char) * strlen(data3) +1));
-	ft_lstadd(&list, ft_lstnew(data4, sizeof(char) * strlen(data4) +1));
-	ft_lstadd(&list, ft_lstnew(data5, sizeof(char) * strlen(data5) +1));
+	ft_lstadd(&list, ft_lstnew(data1, sizeof(char) * size1));
+	ft_lstadd(&list, ft_lstnew(data2, sizeof(char) * size2));
+	ft_lstadd(&list, ft_lstnew(data3, sizeof(char) * size3));
+	ft_lstadd(&list, ft_lstnew(data4, sizeof(char) * size4));
+	ft_lstadd(&list, ft_lstnew(data5, sizeof(char) * size5));
 
 	print_list(list);
 	
@@ -128,6 +128,7 @@ int		main(int ac, char **av)
 	t_list *copylist;
 	t_list *(*fc)(t_list *elem);
 
+	printf("LIST AFTER FUNCTION MAKE_C...\n");
 	fc = &make_c;
 	copylist = ft_lstmap(list, fc);
 	print_list(copylist);

@@ -1,12 +1,8 @@
-#include "libft.h"
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-int		checkarg(char **av)
-{
-	return 1;
-}
+#include "libft.h"
 
 char	**ft_tabdup(char **tab)
 {
@@ -40,6 +36,9 @@ void	ft_printtab(char **tab)
 
 int		main(int ac, char **av)
 {
+	ac = 1;
+	if (ac == 1)
+		printf("\n");
 	char mytest1[] = "bonjour ca\tva";
 	char mytest2[] = "   salut    lol\n ";
 	char mytest3[] = "";
