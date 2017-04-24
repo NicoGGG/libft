@@ -6,13 +6,13 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 15:30:47 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/14 15:30:51 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/24 20:25:40 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int				tab_lines(char const *s, int c)
+static int		tab_lines(char const *s, int c)
 {
 	int			i;
 	int			lines;
@@ -33,7 +33,7 @@ int				tab_lines(char const *s, int c)
 	return (lines);
 }
 
-char			*fill_tab(char const *s, char c)
+static char		*fill_tab(char const *s, char c)
 {
 	int			i;
 	char		*copy;

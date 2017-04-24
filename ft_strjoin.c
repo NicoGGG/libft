@@ -6,7 +6,7 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 20:07:05 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/18 14:59:17 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/24 20:45:28 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	if (i == 0)
 		join = (char*)s2;
+	join[i + j] = 0;
 	while (--i >= 0)
 	{
-		while (j >= 0)
-		{
-			join[i + j] = s2[j];
-			j--;
-		}
+		while (--j >= 0)
+			join[i + j + 1] = s2[j];
 		join[i] = s1[i];
 	}
 	return (join);

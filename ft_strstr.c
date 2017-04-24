@@ -6,7 +6,7 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:12:50 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/13 20:19:42 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/24 19:16:03 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strstr(const char *big, const char *little)
 
 	i = 0;
 	j = 0;
+	if (little[i] == 0)
+		return ((char *)big);
 	while (big[i])
 	{
 		j = 0;

@@ -6,7 +6,7 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 15:01:42 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/14 15:36:15 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/24 18:46:17 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ char				*ft_strnstr(const char *big,
 		const char *little, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-int					atoi(const char *str);
-int					isalpha(int c);
-int					isdigit(int c);
-int					isalnum(int c);
-int					isascii(int c);
-int					isprint(int c);
-int					toupper(int c);
-int					tolower(int c);
+char				*ft_itoa(int n);
+int					ft_atoi(const char *str);
+int					ft_isalpha(int c);
+int					ft_isdigit(int c);
+int					ft_isalnum(int c);
+int					ft_isascii(int c);
+int					ft_isprint(int c);
+int					ft_toupper(int c);
+int					ft_tolower(int c);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
