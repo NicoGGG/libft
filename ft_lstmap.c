@@ -6,7 +6,7 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 22:08:26 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/18 16:55:17 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/25 21:23:06 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 
 	if (lst == NULL)
 		return (NULL);
-	copy = lst;
-	head = lst;
-	while (copy)
+	copy = f(lst);
+	head = copy;
+	if (head == NULL)
+		return (NULL);
+	while (lst->next)
 	{
-		if ((copy = malloc(sizeof(t_list))) == NULL)
+		if ((copy->next = malloc(sizeof(t_list))) == NULL)
 			return (NULL);
-		if ((copy->content = malloc(lst->content_size)) == NULL)
-		{
-			free(copy);
+		if ((copy->next->content = malloc(lst->content_size)) == NULL)
 			return (NULL);
-		}
-		copy = f(lst);
-		copy->next = lst->next;
 		lst = lst->next;
-		copy = lst;
+		copy->next = f(lst);
+		if (copy->next == NULL)
+			return (NULL);
+		copy = copy->next;
 	}
 	return (head);
 }

@@ -6,7 +6,7 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 20:07:05 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/24 20:45:28 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/25 20:16:09 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	if ((join = malloc(sizeof(char) * (i + j) + 1)) == NULL)
 		return (NULL);
-	if (i == 0)
-		join = (char*)s2;
 	join[i + j] = 0;
 	while (--i >= 0)
 	{

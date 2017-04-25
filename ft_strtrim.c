@@ -6,11 +6,12 @@
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 20:20:19 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/04/24 20:36:29 by nguelfi          ###   ########.fr       */
+/*   Updated: 2017/04/25 21:33:26 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strtrim(char const *s)
 {
@@ -20,18 +21,18 @@ char	*ft_strtrim(char const *s)
 	char	*trim;
 
 	i = 0;
-	while (s[i] == ' ' || s[i] == ',' || s[i] == '\n' || s[i] == '\t')
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
 	j = i;
 	while (s[j])
 		j++;
-	while (s[j] == ' ' || s[j] == ',' || s[j] == '\n'
-		   || s[j] == 0 || s[j] == '\t')
+	while ((s[j] == ' ' || s[j] == '\n' ||
+			s[j] == 0 || s[j] == '\t') && s[i])
 		j--;
-	k = j - i + 1;
-	if ((trim = (char *)malloc(sizeof(char) * k)) == NULL)
+	k = j - i;
+	if (!(trim = ft_memalloc(k + 2)))
 		return (NULL);
-	trim[k] = 0;
+	trim[k++] = 0;
 	while (--k >= 0)
 	{
 		trim[k] = s[j];
